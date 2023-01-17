@@ -1,28 +1,29 @@
 {% extends "base.html" %}
 
-{% block title %}
-Index | Companies list
-{% endblock %}
+{% block title %}Index | Companies list{% endblock %}
 
 {% block content %}
 
-{% if message %}
-    <p>{{message}}</p>
-{% endif%}
+    {% if message %}
+        <p>{{message}}</p>
+    {% endif%}
 
-<table>
-    <caption><h1>Companies Registered</h1></caption>
-    <tr>
-        <td><b>Name</b></td>
-        <td><b>Sector</b></td>
-        <td><b>Siren</b></td>
-    </tr>
-    {% for company in companies %}
-    <tr>
-        <td><a href="{{ url_for('detail',company=company['name']) }}">{{company['name']}}</a></td>
-        <td>{{company['sector']}}</td>
-        <td>{{company['siren']}}</td>
-    </tr>
-    {% endfor %}
-</table>
+    <table id="companies">
+        <caption><h1>Companies Registered</h1></caption>
+        <tr>
+            <th><b>Company</b></th>
+            <th><b>Sector</b></th>
+            <th><b>Siren</b></th>
+        </tr>
+
+        {% for company in companies %}
+            <tr>
+                <td id="left"><a href="{{ url_for('detail',company=company['name']) }}">{{company['name']}}</a></td>
+                <td>{{company['sector']}}</td>
+                <td>{{company['siren']}}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
 {% endblock content %}

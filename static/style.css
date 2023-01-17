@@ -1,0 +1,88 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#companies{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#companies td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#companies tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#companies tr:hover {
+    background-color: #ddd;
+}
+
+#companies th {
+    border: 1px solid #ddd;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #458fb1;
+    color: white;
+}
+
+#companies caption {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #0452aa;
+    color: white;
+}
+
+#results {
+    border-collapse: collapse;
+    width: 40%;
+}
+
+#results td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#results tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#results tr:hover {
+    background-color: #ddd;
+}
+
+#results th {
+    border: 1px solid #ddd;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #458fb1;
+    color: white;
+}
+
+#results th:nth-child(even) {
+    background-color: #305d72;
+}
+#results caption {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #0452aa;
+  color: white;
+}
+
+#left td{
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#index{
+    top: 1rem;
+    position: relative;
+}

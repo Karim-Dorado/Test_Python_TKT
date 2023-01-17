@@ -1,55 +1,41 @@
 {% extends "base.html" %}
 
-{% block title %}
-{{company['name']}} | Details
-{% endblock %}
+{% block title %}{{company['name']}} | Details{% endblock %}
 
 {% block content %}
-<h1>{{company['name']}}</h1>
-<h2>Sector: {{company['sector']}}</h2>
-<h2>Siren: {{company['siren']}}</h2>
 
-{% for i in range((company['results'])|length) %}
-<table>
-    <caption><h3>{{company['results'][i]['year']}}</h3></caption>
-    <tr>
-        <td>CA</td>
-        <td>{{company['results'][i]['ca']}}</td>
-    </tr>
-    <tr>
-        <td>MARGIN</td>
-        <td>{{company['results'][i]['margin']}}</td>
-    </tr>
-    <tr>
-        <td>EBITDA</td>
-        <td>{{company['results'][i]['ebitda']}}</td>
-    </tr>
-    <tr>
-        <td>LOSS</td>
-        <td>{{company['results'][i]['loss']}}</td>
-    </tr>
-</table>
-{% endfor %}
+    <h1>{{company['name']}}</h1>
+    <h2>Sector: {{company['sector']}}</h2>
+    <h2>Siren: {{company['siren']}}</h2>
 
-<table>
-    <caption><h3>Percentage change between {{company['results'][0]['year']}} and {{company['results'][1]['year']}}</h3></caption>
-    <tr>
-        <td>CA</td>
-        <td>{{ca_change}} %</td>
-    </tr>
-    <tr>
-        <td>MARGIN</td>
-        <td>{{margin_change}} %</td>
-    </tr>
-    <tr>
-        <td>EBITDA</td>
-        <td>{{ebitda_change}} %</td>
-    </tr>
-    <tr>
-        <td>LOSS</td>
-        <td>{{loss_change}} %</td>
-    </tr>
-</table>
+    
+    <table id="results">
+        <caption>Results</caption>
+        <tr>
+            <th>YEAR</th>
+            <th>CA</th>
+            <th>MARGIN</th>
+            <th>EBITDA</th>
+            <th>LOSS</th>
+        </tr>
+        {% for i in range((company['results'])|length) %}
+            <tr>
+                <td>{{company['results'][i]['year']}}</td>
+                <td>{{company['results'][i]['ca']}}</td>
+                <td>{{company['results'][i]['margin']}}</td>
+                <td>{{company['results'][i]['ebitda']}}</td>
+                <td>{{company['results'][i]['loss']}}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td>Change between {{company['results'][1]['year']}} and {{company['results'][0]['year']}}</td>
+            <td>{{ca_change}} %</td>
+            <td>{{margin_change}} %</td>
+            <td>{{ebitda_change}} %</td>
+            <td>{{loss_change}} %</td>
+        </tr>
+    </table>
 
-<a href="{{url_for('index')}}">Return to index page</a>
+    <a href="{{url_for('index')}}" id="index">Return to index page</a>
+
 {% endblock content %}

@@ -4,8 +4,8 @@ from flask import Flask, render_template
 
 
 def load_companies():
-    with open('test python.json') as c:
-        list_of_companies = json.load(c)
+    with open('test python.json') as f:
+        list_of_companies = json.load(f)
         return list_of_companies
 
 

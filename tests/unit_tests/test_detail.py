@@ -2,31 +2,29 @@ from change_calculator import percentage_change
 
 
 def test_should_status_code_ok(client):
-        name = "Reinger Inc",
-        response = client.get(f"/detail/{name}")
-        assert response.status_code == 200
+    name = "Reinger Inc"
+    response = client.get(f"/detail/{name}")
+    assert response.status_code == 200
 
 
 def test_should_display_all_company_data(client):
     company = {"name": "Reinger Inc",
                "sector": "Services",
                "siren": 135694027,
-               "results": [
-                           {
+               "results": [{
                             "ca": 2077357,
                             "margin": 497351,
                             "ebitda": 65952,
                             "loss": 858474,
                             "year": 2017
                             },
-                            {
+                           {
                             "ca": 432070,
                             "margin": 427778,
                             "ebitda": 290433,
                             "loss": 8023406,
                             "year": 2016
-                            }
-                           ]}
+                            }]}
     response = client.get(f"/detail/{company['name']}")
     assert (company['sector']) in response.data.decode()
     assert str(company['siren']) in response.data.decode()
@@ -54,7 +52,7 @@ def test_evolution_board(client):
                             "loss": 858474,
                             "year": 2017
                             },
-                            {
+                           {
                             "ca": 432070,
                             "margin": 427778,
                             "ebitda": 290433,
